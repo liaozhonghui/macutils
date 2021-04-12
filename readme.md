@@ -1,10 +1,19 @@
-Mac 下的 phrases.ini 文件
+## Mac 转化搜狗输入法表情 ini 文件
 
-处理过程
-使用 shift + command+ option +上下箭头进行选取
-在开头增加$$符号
+#### 输入：
 
-使用 swift 脚本进行文本生成 transfer.swift
+- 从搜狗输入法中导出的 phrases.ini 文件
+- 自定义 phrases.ini 文件
+
+#### 处理过程
+
+#### 使用 vscode 打开 ini 文件。
+
+- 使用 shift + command+ option +上下箭头进行选取
+- 在开头增加$$符号
+- 使用 swift 脚本进行文本生成
+
+> transfer.swift 代码
 
 ```swift
 #!/usr/bin/env xcrun swift
@@ -33,14 +42,17 @@ try xml.write(to: targetUrl)
 print(dic.count)
 ```
 
-执行脚本
+- 执行脚本
 
 ```bash
 Chmod 755 ./transfer.swift
 ./transfer.swift
-
 ```
 
-将生成的搜狗输入法配置.plist 文件拖动到 键盘->文本列表中，键盘->文本可以用 command+😦 全选，可以执行删除操作。
+- 将生成的.plist 文件配置到 mac 键盘->文本列表中
 
-搜狗输入法同步
+> 键盘->文本列表中，键盘->文本可以用 command+😦 全选，可以执行删除操作。
+
+- 使用 icloud 同步，在手机端搜狗输入法中“导入系统文本替换”
+
+- 完成导入，可以继续进行使用
